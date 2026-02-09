@@ -13,14 +13,15 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted} from "vue";
-import {useCarsStore} from "../store/cars.ts";
+import { onMounted } from "vue";
+import { useCarsStore } from "../store/cars.ts";
+import { storeToRefs } from "pinia";
 
-const {cars, getCars} = useCarsStore();
+const { cars } = storeToRefs(useCarsStore());
+const { getCars } = useCarsStore();
 
 onMounted(() => {
   getCars();
-  console.log(cars);
 })
 </script>
 
