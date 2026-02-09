@@ -2,7 +2,8 @@
   <div id="app" :class="{ 'blur-background': showForm }">
     <v-btn
         class="btn"
-        variant="tonal"
+        color="primary"
+        variant="flat"
         @click="showForm = true"
     >
       Add car
