@@ -60,7 +60,7 @@
               variant="flat"
               :disabled="!isFormValid"
           >
-            Add Car
+            Add
           </v-btn>
         </v-card-actions>
       </v-form>
@@ -104,7 +104,6 @@ const { addCar } = useCarsStore();
 
 const handleSubmit = () => {
   if (isFormValid.value) {
-    console.log(newCar);
     addCar(newCar);
     handleClose();
   }
