@@ -5,11 +5,11 @@ export type CarData = {
     id: number,
     name: string,
     model: string,
-    year: number,
+    year: number | null,
     color: string,
-    price: number,
-    latitude: number,
-    longitude: number
+    price: number | null,
+    latitude?: number,
+    longitude?: number
 }
 
 export const useCarsStore = defineStore('carsData', () => {
@@ -18,8 +18,11 @@ export const useCarsStore = defineStore('carsData', () => {
     const getCars = async () => {
         const response = await fetch('https://task.tspb.su/test-task/vehicles');
         cars.value =  await response.json();
-        console.log(cars.value);
     }
 
-    return {cars, getCars}
+    const addCar = (car: CarData) => {
+        cars.value.push(car);
+    }
+
+    return {cars, getCars, addCar}
 })
