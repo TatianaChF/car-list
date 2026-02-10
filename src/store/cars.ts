@@ -58,6 +58,10 @@ export const useCarsStore = defineStore('carsData', () => {
         }
     }
 
+    const deleteCar = (id: number) => {
+        cars.value = cars.value.filter((car) => car.id !== id);
+    }
+
     return {
         cars,
         sortedCars,
@@ -65,6 +69,7 @@ export const useCarsStore = defineStore('carsData', () => {
         getCars,
         addCar,
         sortCars,
-        updateCar
+        updateCar,
+        deleteCar
     }
 })

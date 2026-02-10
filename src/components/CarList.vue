@@ -64,6 +64,7 @@
                 color="error"
                 size="small"
                 variant="flat"
+                @click="deleteCar(car.id)"
             >
               Delete
             </v-btn>
@@ -90,7 +91,7 @@ const editFormValid = computed(() => {
 })
 
 const { cars } = storeToRefs(useCarsStore());
-const { getCars, updateCar } = useCarsStore();
+const { getCars, updateCar, deleteCar } = useCarsStore();
 
 onMounted(() => {
   getCars();
