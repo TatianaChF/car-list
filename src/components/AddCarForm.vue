@@ -49,7 +49,9 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
-              variant="text"
+              color="error"
+              size="small"
+              variant="flat"
               @click="handleClose"
           >
             Cancel
@@ -58,6 +60,7 @@
               type="submit"
               color="primary"
               variant="flat"
+              size="small"
               :disabled="!isFormValid"
           >
             Add
