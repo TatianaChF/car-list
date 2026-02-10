@@ -17,8 +17,12 @@ export const useCarsStore = defineStore('carsData', () => {
     const sortField = ref<string>('no');
 
     const getCars = async () => {
-        const response = await fetch('https://task.tspb.su/test-task/vehicles');
-        cars.value = await response.json();
+        try {
+            const response = await fetch('https://task.tspb.su/test-task/vehicles');
+            cars.value = await response.json();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const addCar = (car: CarData) => {
