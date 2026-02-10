@@ -1,13 +1,17 @@
 <template>
   <div id="app" :class="{ 'blur-background': showForm }">
-    <v-btn
-        class="btn"
-        color="primary"
-        variant="flat"
-        @click="showForm = true"
-    >
-      Add car
-    </v-btn>
+    <div class="settings">
+      <v-btn
+          class="btn"
+          color="primary"
+          variant="flat"
+          @click="showForm = true"
+      >
+        Add car
+      </v-btn>
+
+      <sorting />
+    </div>
 
     <car-list/>
 
@@ -24,11 +28,18 @@
 import CarList from './components/CarList.vue';
 import AddCarForm from './components/AddCarForm.vue';
 import { ref } from "vue";
+import Sorting from "./components/Sorting.vue";
 
 const showForm = ref(false);
 </script>
 
 <style scoped>
+.settings {
+  display: flex;
+  align-self: center;
+  gap: 9%;
+}
+
 .blur-background {
   filter: blur(4px);
   transition: filter 0.3s ease;
