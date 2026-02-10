@@ -36,8 +36,8 @@ const showForm = ref(false);
 <style scoped>
 .settings {
   display: flex;
-  align-self: center;
-  gap: 9%;
+  align-items: start;
+  gap: 100px;
 }
 
 .blur-background {
