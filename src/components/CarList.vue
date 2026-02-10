@@ -126,26 +126,3 @@ const saveEdit = (car: CarData) => {
   }
 };
 </script>
-
-<style scoped>
-.list {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  gap: 10px;
-}
-
-.price {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.btns-settings {
-  display: flex;
-}
-
-.btns-edit {
-  display: flex;
-  justify-content: flex-end;
-}
-</style>

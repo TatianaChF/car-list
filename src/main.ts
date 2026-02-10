@@ -1,9 +1,9 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 import '@mdi/font/css/materialdesignicons.css';
 import pinia from "./utils/pinia.ts";
 import vuetify from "./utils/vuetify.ts";
+import "./assets/style.css";
 
 const app = createApp(App);
 

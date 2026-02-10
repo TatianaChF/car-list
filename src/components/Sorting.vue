@@ -21,14 +21,6 @@ const { sortField } = storeToRefs(useCarsStore());
 const { sortCars } = useCarsStore();
 
 const handleSort = (field: string) => {
-  console.log(field);
   sortCars(field);
 }
 </script>
-
-<style scoped>
-.sort-controls {
-  display: flex;
-  align-items: center;
-}
-</style>

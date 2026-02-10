@@ -1,5 +1,8 @@
 <template>
-  <div id="app" :class="{ 'blur-background': showForm }">
+  <div
+      id="app"
+      :class="{ 'blur-background': showForm }"
+  >
     <div class="settings">
       <v-btn
           class="btn"
@@ -32,22 +35,3 @@ import Sorting from "./components/Sorting.vue";
 
 const showForm = ref(false);
 </script>
-
-<style scoped>
-.settings {
-  display: flex;
-  align-items: start;
-  gap: 100px;
-}
-
-.blur-background {
-  filter: blur(4px);
-  transition: filter 0.3s ease;
-  pointer-events: none;
-  user-select: none;
-}
-
-.btn {
-  margin-bottom: 20px;
-}
-</style>
