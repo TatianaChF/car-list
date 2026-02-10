@@ -14,13 +14,11 @@ export type CarData = {
 
 export const useCarsStore = defineStore('carsData', () => {
     const cars = ref<CarData[]>([]);
-    const sortedCars = ref<CarData[]>([]);
     const sortField = ref<string>('no');
 
     const getCars = async () => {
         const response = await fetch('https://task.tspb.su/test-task/vehicles');
         cars.value = await response.json();
-        sortedCars.value = await response.json();
     }
 
     const addCar = (car: CarData) => {
@@ -64,7 +62,6 @@ export const useCarsStore = defineStore('carsData', () => {
 
     return {
         cars,
-        sortedCars,
         sortField,
         getCars,
         addCar,
