@@ -70,20 +70,11 @@
 
 <script lang="ts" setup>
 import { reactive, computed } from "vue";
-import { useCarsStore } from "../store/cars.ts";
+import {type CarData, useCarsStore} from "../store/cars.ts";
 
 const emit = defineEmits(['close']);
 
-interface CarForm {
-  id: number;
-  name: string;
-  model: string;
-  year: number | null;
-  color: string;
-  price: number | null;
-}
-
-const newCar = reactive<CarForm>({
+const newCar = reactive<CarData>({
   id: Date.now(),
   name: '',
   model: '',
