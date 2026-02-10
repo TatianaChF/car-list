@@ -50,12 +50,21 @@ export const useCarsStore = defineStore('carsData', () => {
         }
     }
 
+    const updateCar = (updatedCar: CarData) => {
+        const index = cars.value.findIndex(car => car.id === updatedCar.id);
+
+        if (index !== -1) {
+            cars.value[index] = { ...cars.value[index], ...updatedCar };
+        }
+    }
+
     return {
         cars,
         sortedCars,
         sortField,
         getCars,
         addCar,
-        sortCars
+        sortCars,
+        updateCar
     }
 })
