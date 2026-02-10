@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import {ref} from 'vue'
+import {getCars} from "../api/methods.ts";
 
 export type CarData = {
     id: number,
@@ -16,10 +17,9 @@ export const useCarsStore = defineStore('carsData', () => {
     const cars = ref<CarData[]>([]);
     const sortField = ref<string>('no');
 
-    const getCars = async () => {
+    const getCarsToStore = async () => {
         try {
-            const response = await fetch('https://task.tspb.su/test-task/vehicles');
-            cars.value = await response.json();
+            cars.value = await getCars();
         } catch (error) {
             console.log(error);
         }
@@ -67,7 +67,7 @@ export const useCarsStore = defineStore('carsData', () => {
     return {
         cars,
         sortField,
-        getCars,
+        getCarsToStore,
         addCar,
         sortCars,
         updateCar,
