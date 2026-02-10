@@ -30,7 +30,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   width: 50%;
-  gap: 30px;
+  gap: 10px;
 }
 
 .price {
