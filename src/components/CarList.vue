@@ -91,11 +91,7 @@ const editFormValid = computed(() => {
 })
 
 const { cars } = storeToRefs(useCarsStore());
-const { getCarsToStore, updateCar, deleteCar } = useCarsStore();
-
-onMounted(() => {
-  getCarsToStore();
-})
+const { updateCar, deleteCar } = useCarsStore();
 
 const startEdit = (car: CarData) => {
   editingCarId.value = car.id;

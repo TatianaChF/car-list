@@ -3,20 +3,23 @@
       id="app"
       :class="{ 'blur-background': showForm }"
   >
-    <div class="settings">
-      <v-btn
-          class="btn"
-          color="primary"
-          variant="flat"
-          @click="showForm = true"
-      >
-        Add car
-      </v-btn>
+        <div class="settings">
+          <v-btn
+              class="btn"
+              color="primary"
+              variant="flat"
+              @click="showForm = true"
+          >
+            Add car
+          </v-btn>
 
-      <sorting />
+          <sorting/>
+        </div>
+
+    <div class="content">
+      <car-list/>
+      <car-map/>
     </div>
-
-    <car-list/>
 
     <Teleport to="body">
       <add-car-form
@@ -30,8 +33,16 @@
 <script setup lang="ts">
 import CarList from './components/CarList.vue';
 import AddCarForm from './components/AddCarForm.vue';
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 import Sorting from "./components/Sorting.vue";
+import CarMap from "./components/CarMap.vue";
+import {useCarsStore} from "./store/cars.ts";
 
 const showForm = ref(false);
+
+const { getCarsToStore } = useCarsStore();
+
+onMounted(() => {
+  getCarsToStore();
+})
 </script>
