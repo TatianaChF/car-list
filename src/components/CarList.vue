@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import {computed, onMounted, reactive, ref} from "vue";
+import {computed, reactive, ref} from "vue";
 import {type CarData, useCarsStore} from "../store/cars.ts";
 import { storeToRefs } from "pinia";
 
