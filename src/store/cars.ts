@@ -1,17 +1,7 @@
 import {defineStore} from "pinia";
 import {ref} from 'vue'
 import {getCars} from "../api/methods.ts";
-
-export type CarData = {
-    id: number,
-    name: string,
-    model: string,
-    year: number | null,
-    color: string,
-    price: number | null,
-    latitude?: number,
-    longitude?: number
-}
+import type {CarData} from "../types.ts";
 
 export const useCarsStore = defineStore('carsData', () => {
     const cars = ref<CarData[]>([]);

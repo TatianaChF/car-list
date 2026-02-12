@@ -34,6 +34,12 @@
     animation: fadeIn 0.3s ease;
 }
 
+.form-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .modal-form {
     border-radius: 12px;
     background: white;

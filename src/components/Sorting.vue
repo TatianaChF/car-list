@@ -6,36 +6,13 @@
         mandatory
     >
       <v-chip
-          value="year (asc)"
+          v-for="chip in chips"
+          :value="chip.value"
           color="primary"
           variant="plain"
           class="custom-chip"
       >
-        By Year (asc)
-      </v-chip>
-      <v-chip
-          value="year (desc)"
-          color="primary"
-          variant="plain"
-          class="custom-chip"
-      >
-        By Year (desc)
-      </v-chip>
-      <v-chip
-          value="price (asc)"
-          color="primary"
-          variant="plain"
-          class="custom-chip"
-      >
-        By Price (asc)
-      </v-chip>
-      <v-chip
-          value="price (desc)"
-          color="primary"
-          variant="plain"
-          class="custom-chip"
-      >
-        By Price (desc)
+        {{ chip.name }}
       </v-chip>
     </v-chip-group>
   </div>
@@ -44,6 +21,25 @@
 <script lang="ts" setup>
 import { useCarsStore } from "../store/cars.ts";
 import { storeToRefs } from "pinia";
+
+const chips = [
+  {
+    name: "By Year (asc)",
+    value: "year (asc)",
+  },
+  {
+    name: "By Year (desc)",
+    value: "year (desc)",
+  },
+  {
+    name: "By Price (asc)",
+    value: "price (asc)",
+  },
+  {
+    name: "By Price (desc)",
+    value: "price (desc)",
+  }
+];
 
 const { sortField } = storeToRefs(useCarsStore());
 const { sortCars } = useCarsStore();

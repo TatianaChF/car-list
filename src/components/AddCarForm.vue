@@ -1,8 +1,18 @@
 <template>
-  <div class="form-overlay" @click.self="handleClose">
-    <v-sheet class="modal-form" width="400" elevation="10">
-      <v-form fast-fail @submit.prevent="handleSubmit">
-        <v-card-title class="d-flex justify-space-between align-center">
+  <div
+      class="form-overlay"
+      @click.self="handleClose"
+  >
+    <v-sheet
+        class="modal-form"
+        width="400"
+        elevation="10"
+    >
+      <v-form
+          fast-fail
+          @submit.prevent="handleSubmit"
+      >
+        <v-card-title class="form-content">
           <span>Add New Car</span>
         </v-card-title>
 
@@ -12,14 +22,14 @@
               label="Car name"
               density="compact"
               class="mb-3"
-              required
+              :rules="[v => !!v || 'Name is required']"
           />
           <v-text-field
               v-model="newCar.model"
               label="Car model"
               density="compact"
               class="mb-3"
-              required
+              :rules="[v => !!v || 'Model is required']"
           />
           <v-text-field
               v-model.number="newCar.year"
@@ -34,7 +44,7 @@
               label="Car color"
               density="compact"
               class="mb-3"
-              required
+              :rules="[v => !!v || 'Color is required']"
           />
           <v-text-field
               v-model.number="newCar.price"
@@ -73,7 +83,8 @@
 
 <script lang="ts" setup>
 import { reactive, computed } from "vue";
-import {type CarData, useCarsStore} from "../store/cars.ts";
+import { useCarsStore } from "../store/cars.ts";
+import type {CarData} from "../types.ts";
 
 const emit = defineEmits(['close']);
 

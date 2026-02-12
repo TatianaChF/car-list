@@ -7,8 +7,9 @@ import { ref, onMounted, watch, onUnmounted } from 'vue';
 import "leaflet/dist/leaflet.css";
 import * as L from 'leaflet';
 import { storeToRefs } from "pinia";
-import { type CarData, useCarsStore } from "../store/cars.ts";
+import { useCarsStore } from "../store/cars.ts";
 import type { Map as LeafletMap, LayerGroup } from "leaflet";
+import type { CarData } from "../types.ts";
 
 const map = ref<LeafletMap | null>(null);
 const markersLayer = ref<LayerGroup | null>(null);
